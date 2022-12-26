@@ -5,17 +5,17 @@ import CopyToClipboard from "react-copy-to-clipboard";
 const baseURL = 'http://localhost:3333/api/short/';
 
 function App() {
-  const [userInput, setUserInput] = useState("https://www.freecodecamp.org/news/create-a-react-frontend-a-node-express-backend-and-connect-them-together-c5798926047c/");
+  const [userInput, setUserInput] = useState("");
   const [shortUrlLink, setShortUrlLink] = useState("");
 
   const fetchData = function() {
     console.log("Fetching data...");
     axios
     .post(baseURL, {
-      "origUrl": "https://www.freecodecamp.org/news/create-a-react-frontend-a-node-express-backend-and-connect-them-together-c5798926047c/"
+      "origUrl": userInput
     })
     .then((response) => {
-      setShortUrlLink(response.data);
+      setShortUrlLink(response.data.shortUrl);
       console.log(response.data);
     });
     }
@@ -46,6 +46,7 @@ function App() {
             Make ShortURL!
           </button>
           <div className="mt-5">
+            {shortUrlLink}
             <CopyToClipboard text={shortUrlLink}>
               <button className="border-2 border-blue-500 text-blue-500 font-medium px-5 py-2 ml-4 rounded-md">
                 Copy
