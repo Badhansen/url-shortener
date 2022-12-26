@@ -2,21 +2,23 @@ import './App.css';
 import { React, useState } from "react";
 import axios from "axios";
 import CopyToClipboard from "react-copy-to-clipboard";
+const baseURL = 'http://localhost:3333/api/short/';
 
 function App() {
-  const [userInput, setUserInput] = useState("");
+  const [userInput, setUserInput] = useState("https://www.freecodecamp.org/news/create-a-react-frontend-a-node-express-backend-and-connect-them-together-c5798926047c/");
   const [shortUrlLink, setShortUrlLink] = useState("");
 
-  const fetchData = async () => {
-    try {
-      const response = await axios(
-        "https://localhost:3333/api/short/${userInput}"
-      )
-      setShortUrlLink();
-    } catch (err) {
-      console.log(err);
-    };
-  };
+  const fetchData = function() {
+    console.log("Fetching data...");
+    axios
+    .post(baseURL, {
+      "origUrl": "https://www.freecodecamp.org/news/create-a-react-frontend-a-node-express-backend-and-connect-them-together-c5798926047c/"
+    })
+    .then((response) => {
+      setShortUrlLink(response.data);
+      console.log(response.data);
+    });
+    }
   return (
     <div className="container h-screen flex justify-center items-center">
       <div className="text-center">
@@ -28,8 +30,19 @@ function App() {
             className="outline-none border-2 border-blue-500 rounded-md backdrop-blur-xl bg-white/20 shadow-md px-3 py-3"
             type="text"
             placeholder="Make a ShortURL"
+            value={userInput}
+            onChange={ (e) => {
+              setUserInput(e.target.value);
+              console.log(userInput);
+            }}
           />
-          <button className=" bg-blue-500 text-white px-8 py-3 ml-4 rounded-md">
+          <button 
+            className="bg-blue-500 text-white px-8 py-3 ml-4 rounded-md"
+            onClick={ () => {
+              console.log("Hi there!");
+              fetchData();
+              console.log(userInput);
+            }}>
             Make ShortURL!
           </button>
           <div className="mt-5">
