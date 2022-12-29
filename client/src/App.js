@@ -15,8 +15,13 @@ function App() {
       "origUrl": userInput
     })
     .then((response) => {
-      setShortUrlLink(response.data.shortUrl);
-      console.log(response.data);
+      if (response.data === "Invalid Original Url"){
+        console.log("Invalid Original Url");
+        alert("Hello! You placed an invalid url!");
+      } else {
+        setShortUrlLink(response.data.shortUrl);
+        console.log(response.data);
+      }
     });
     }
   return (
