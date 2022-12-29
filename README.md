@@ -6,7 +6,7 @@ There are two seperate applications. The Client which serves as Frontend(using R
 
 ## Environment Variables
 
-To run this project, you will need to add the following environment variables to your `.env` file. I have provided an example file .env.example please update it to your own in .env file without .example.
+To run this project, you will need to add the following environment variables to your `.env` file. I have provided an example file `.env.example` please update it to your own in `.env` file without `.example`.
 
 | Variable    | Description             |
 | :---------- | :---------------------- |
