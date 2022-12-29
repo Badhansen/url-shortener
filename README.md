@@ -9,7 +9,7 @@ There are two seperate applications. The Client which serves as Frontend(using R
 3. Run `npm start` to start the app.
 
 ## Test and Run the Backend
-![]()
+![](https://github.com/Badhansen/url-shortener/blob/master/docs/images/ulr%20shortener%20backend%20gif.gif)
 
 ## How to run the Client
 1. In another terminal, navigate to the `client` directory.
