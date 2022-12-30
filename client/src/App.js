@@ -2,7 +2,7 @@ import './App.css';
 import { React, useState } from "react";
 import axios from "axios";
 import CopyToClipboard from "react-copy-to-clipboard";
-const baseURL = 'http://localhost:3333/api/short/';
+const baseURL = 'https://s-bppm.onrender.com/api/short/';
 
 function App() {
   const [userInput, setUserInput] = useState("");
