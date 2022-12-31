@@ -2,7 +2,8 @@ import './App.css';
 import { React, useState } from "react";
 import axios from "axios";
 import CopyToClipboard from "react-copy-to-clipboard";
-const baseURL = 'https://s-bppm.onrender.com/api/short/';
+
+const baseURL = process.env.REACT_APP_SHORT;
 
 function App() {
   const [userInput, setUserInput] = useState("");
@@ -10,6 +11,7 @@ function App() {
 
   const fetchData = function() {
     console.log("Fetching data...");
+    console.log(baseURL);
     axios
     .post(baseURL, {
       "origUrl": userInput
