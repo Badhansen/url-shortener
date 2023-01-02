@@ -12,6 +12,9 @@ To run this project, you will need to add the following environment variables to
 | :---------- | :---------------------- |
 | `MONGODB_URI` | MongoDB URI             |
 | `BASE`      | Base URL for Shortening |
+| DOMAIN      | http://localhost:3333 Or Base URL for React App|
+| REACT_APP_SHORT | $DOMAIN/api/short |
+| REACT_APP_ALL | $DOMAIN/api/all |
 
 ### References
 * [How to connect to MongoDB Atlas using Node.js](https://dev.to/dalalrohit/how-to-connect-to-mongodb-atlas-using-node-js-k9i)
